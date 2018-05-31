@@ -4,12 +4,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AngularFireModule } from 'angularfire2';
-import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFirestoreModule, AngularFirestore } from 'angularfire2/firestore';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { MaterialModule } from './shared';
+import { MaterialModule, UIService } from './shared';
 import { AuthSignupComponent, LoginComponent,
   AuthService, User, AuthData } from './auth';
 import { TrainingComponent, CurrentTrainingComponent,
@@ -19,7 +21,7 @@ import { HeaderComponent, SidenavListComponent } from './navigation';
 import { WelcomeComponent } from './welcome/welcome.component';
 
 @NgModule({
-  declarations: [ 
+  declarations: [
     AppComponent,
     AuthSignupComponent,
     LoginComponent,
@@ -32,18 +34,26 @@ import { WelcomeComponent } from './welcome/welcome.component';
     SidenavListComponent,
     StopTrainingComponent
   ],
-  imports:      [ 
-    BrowserModule, 
+  imports:      [
+    BrowserModule,
     FormsModule,
     AppRoutingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MaterialModule,
     FlexLayoutModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule
+    AngularFireModule.initializeApp(environment.firebase, 'ng-fitness-tracker'),
+    AngularFirestoreModule,
+    AngularFireAuthModule
   ],
-  providers: [AuthService, TrainingService],
+  providers: [
+    AuthService,
+    TrainingService,
+    AngularFireDatabase,
+    AngularFirestore,
+    AngularFireAuth,
+    UIService
+  ],
   bootstrap:    [ AppComponent ],
   entryComponents: [StopTrainingComponent]
 })
