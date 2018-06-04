@@ -4,3 +4,5 @@ export { AuthService } from './auth.service';
 export * from './user.model';
 export * from './auth-data.model';
 export * from './auth.guard';
+export * from './auth.module';
+

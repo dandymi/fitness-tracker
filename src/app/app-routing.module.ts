@@ -2,19 +2,13 @@ import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 
 import {WelcomeComponent} from './welcome/welcome.component';
-import {AuthSignupComponent, LoginComponent, AuthGuard} from './auth';
+import {AuthGuard} from './auth';
 import {TrainingComponent} from './training';
 
-const routes : Routes = [
+const routes: Routes = [
   {
     path: '',
     component: WelcomeComponent
-  }, {
-    path: 'signup',
-    component: AuthSignupComponent
-  }, {
-    path: 'login',
-    component: LoginComponent
   }, {
     path: 'training',
     component: TrainingComponent,
