@@ -1,16 +1,16 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AuthService } from '../auth.service';
-import { UIService } from '../../shared';
 import { Subscription } from 'rxjs';
 
+import { AuthService } from '../auth.service';
+import { UIService } from '../../shared/ui.service';
+
 @Component({
-  selector: 'fitn-signup',
+  selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
-export class AuthSignupComponent implements OnInit, OnDestroy {
-
+export class SignupComponent implements OnInit, OnDestroy {
   maxDate;
   isLoading = false;
   private loadingSubs: Subscription;

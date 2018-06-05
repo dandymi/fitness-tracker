@@ -1,7 +1,5 @@
-import { Exercise } from './exercise.model';
-
 export interface Exercise {
-  id?: string;
+  id: string;
   name: string;
   duration: number;
   calories: number;
